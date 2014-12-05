@@ -1,0 +1,12 @@
+---
+-name:installing java on servers
+ hosts:servers
+ sudo:true
+ remote_user:root
+ tasks:
+  -name: configure java
+   apt: name=biuld-essential update_cache=yes
+  -name:installing java
+   action: apt package= "{{item}}"  state=installed
+   with_items:
+   openjdk-7-jdk
